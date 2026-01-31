@@ -9,30 +9,6 @@ public class SubSetEqualSum {
     System.out.println(equalPartition(new int[] {3,3,6,8,16,16,16,18,20}));
   }
 
-  public static boolean isSubSetEqualSum(int[] nums) {
-    int arrsum = java.util.Arrays.stream(nums).sum();
-
-    if (arrsum %2 != 0) {
-      return false;
-    }
-
-    int total_left_part_sum = 0;
-    int total_right_part_sum = 0;
-    int halfArrSum = arrsum/2;
-
-    for (int num: nums) {
-      if (total_left_part_sum > halfArrSum || total_right_part_sum > halfArrSum) {
-        return  false;
-      }
-      if (total_left_part_sum + num <= halfArrSum) {
-        total_left_part_sum += num;
-      } else {
-        total_right_part_sum += num;
-      }
-    }
-    return total_left_part_sum == total_right_part_sum;
-  }
-
   static boolean isSubsetSum(int n, int[] arr, int sum) {
 
     // base cases
